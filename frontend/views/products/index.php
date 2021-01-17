@@ -6,12 +6,15 @@
 /* @var $productslider Slides */
 
 /* @var $products Products */
+/* @var $pages  */
 
 use abdualiym\cms\entities\Pages;
 use abdualiym\language\Language;
 use abdualiym\slider\entities\Slides;
 use backend\models\Products;
 use jalyuzilar\helpers\LanguageHelper;
+use yii\widgets\LinkPager;
+use yii\widgets\Pjax;
 
 foreach ($productslider as $b):
 endforeach;
@@ -52,5 +55,13 @@ endforeach;
             <?php endforeach; ?>
 
         </div>
+        <?php
+        Pjax::begin();
+        echo LinkPager::widget([
+            'pagination' => $pages,
+        ]);
+        Pjax::end();
+        ?>
+
     </div>
 </section>

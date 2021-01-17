@@ -6,7 +6,9 @@ use abdualiym\slider\entities\Slides;
 use backend\models\Cart;
 use backend\models\ProductFeedback;
 use backend\models\Products;
+use medin\entities\Distributors;
 use Yii;
+use yii\data\Pagination;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 
@@ -36,8 +38,18 @@ class ProductsController extends Controller
 
     public function actionIndex()
     {
+
+        $query = Products::find();
+
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count(), 'pageSize' => 6]);
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
         return $this->render('index', [
-            'products' => Products::find()->orderBy(['created_at' => SORT_DESC])->all(),
+            'pages' => $pages,
+            'products' => $products,
             'productslider' => Slides::getBySlug(self::PRODUCTSLIDER),
         ]);
     }
