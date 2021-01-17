@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'os-l';
+  src: url(../fonts/OpenSans-Light.ttf);
+}
+@font-face {
+  font-family: 'os-s';
+  src: url(../fonts/OpenSans-SemiBold.ttf);
+}
+@font-face {
+  font-family: 'os-b';
+  src: url(../fonts/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: 'neucha';
+  src: url(../fonts/Neucha-Regular.ttf);
+}
+body,
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #060503;
+  font-family: 'os-l';
+  color: #fff;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+ul {
+  margin: 0;
+  list-style-type: none;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+textarea,
+input,
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: unset;
+}
+textarea:focus,
+input:focus,
+button:focus {
+  outline: 0;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #fff;
+  border-radius: 0px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9E413A;
+  border-radius: 0px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #9E413A;
+}

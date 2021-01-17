@@ -1,0 +1,49 @@
+version: '3.2'
+
+services:
+
+  frontend_jalyuzilar:
+    build: frontend
+    ports:
+      - 63061:80
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+    restart: unless-stopped
+
+  backend_jalyuzilar:
+    build: backend
+    ports:
+      - 63062:80
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+    restart: unless-stopped
+
+  storage_jalyuzilar:
+    build: storage
+    ports:
+      - 63063:80
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+    restart: unless-stopped
+
+  mysql_jalyuzilar:
+    image: mysql:5.7
+    ports:
+      - 63064:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=1q2w3e4r5tjalyuzilar
+      - MYSQL_DATABASE=jalyuzilar
+      - MYSQL_USER=jalyuzilar
+      - MYSQL_PASSWORD=1q2w3e4r5tjalyuzilar
+    volumes:
+      - ./:/app
+    restart: unless-stopped

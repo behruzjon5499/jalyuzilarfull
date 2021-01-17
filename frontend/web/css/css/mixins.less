@@ -1,0 +1,99 @@
+
+@font-face{
+	font-family:'os-l';
+	src:url(../fonts/OpenSans-Light.ttf);
+}
+@font-face{
+	font-family: 'os-s';
+	src: url(../fonts/OpenSans-SemiBold.ttf);
+}
+@font-face{
+	font-family: 'os-b';
+	src: url(../fonts/OpenSans-Bold.ttf);
+}
+@font-face {
+	font-family:'neucha';
+	src:url(../fonts/Neucha-Regular.ttf);
+}
+
+@green: #0e8d7a;
+@black: #060503;
+@red: #9E413A;
+@lblack: #131312;
+body, * {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: @black;
+	font-family: 'os-l';
+	color: #fff;
+	&.no-scroll {
+		overflow: hidden;
+	}
+}
+ul {
+	margin: 0;
+	list-style-type: none;
+}
+a{
+	color: #fff;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.tr(@s:.5s){
+	-webkit-transition: ease @s;
+	-o-transition: ease @s;
+	transition: ease @s;
+}
+.df(){
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+.fb(@w){
+	flex-basis: @w;
+	flex: 0 0 @w;
+	width: @w;
+	max-width: @w;
+}
+textarea,
+input,
+button {
+	cursor: pointer;
+	border:0;
+	background-color: unset;
+	&:focus {
+		outline: 0;
+	}
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 1px;
+	height: 6px;
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 2px #fff; 
+	border-radius: 0px;
+ }
+  
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+	background:@red; 
+	border-radius: 0px;
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+	background: @red; 
+ }
